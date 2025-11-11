@@ -1,34 +1,235 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6mnkysrpypgd"]
+[gd_scene load_steps=6 format=3 uid="uid://c6mnkysrpypgd"]
 
-[ext_resource type="Script" uid="uid://bd1v37g472s4u" path="res://GameManager.gd" id="1_p13vs"]
+[sub_resource type="ImageTexture" id="ImageTexture_ae2o1"]
+
+[sub_resource type="Theme" id="Theme_ae2o1"]
+
+[sub_resource type="FontVariation" id="FontVariation_aelf4"]
+
+[sub_resource type="FontVariation" id="FontVariation_au0an"]
+base_font = SubResource("FontVariation_aelf4")
+
+[sub_resource type="Theme" id="Theme_p13vs"]
 
 [node name="GameManager" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_p13vs")
+offset_left = 343.0
+offset_top = 24.0
+offset_right = 383.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-clip_contents = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-alignment = 1
-
-[node name="TextoPrincipal" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
+[node name="TituloPrincipal" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -8.375
+anchor_top = -0.2
+anchor_right = 31.025
+anchor_bottom = 0.8
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "Você está na aconchegante cabana, seu lar. Há uma porta de madeira ao norte e uma velha escrivaninha de carvalho a leste. O sol da manhã entra pela janela."
+text = "CRONICAS DE FI"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="EntradaComando" type="LineEdit" parent="VBoxContainer"]
-layout_mode = 2
+[node name="TituloSala" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -6.775
+anchor_top = 2.2
+anchor_right = 10.425
+anchor_bottom = 3.8
+bbcode_enabled = true
+text = "Enfermaria do Santuário de Tisadya"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="BotaoFalar" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Clique em mim"
+[node name="DescricaoSala" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -6.775
+anchor_top = 4.0
+anchor_right = 10.425
+anchor_bottom = 17.8
+text = "Seus olhos se abrem lentamente. Você sente o aroma de uma mistura de ervas secas, lavanda e incenso suave. Você está sobre uma cama de palha, não muito macia, coberto por um lençol de linho áspero.\\nO cômodo é pequeno e simples e, as paredes, de uma alvenaria irregular. O lugar está silencioso, exceto pelo som rítmico de um pilão no qual se moem ervas e pelo gotejar suave de água em uma bacia de barro no canto.\\nA luz é fraca, vinda de algumas velas de sebo e de uma pequena janela próxima ao teto.\\nO quarto é uma enfermaria simples; há mais dois catres vazios como o seu. Ao seu lado, há um banco de madeira gasto de três pernas e uma pequena prateleira na parede, onde repousam alguns frascos de barro etiquetados à mão e rolos de ataduras amareladas.\\nParando de moer as ervas, a elfa seca as mãos em um pano preso ao cinto. Suas vestes são de lã simples, tingidas de um branco desbotado, práticas e gastas nos cotovelos, mas limpas. Seu rosto é sereno e seus olhos, de um verde profundo, o analisam com uma calma profissional.\\nEla pára ao lado da sua cama. Bom. Você acordou. Sua voz é suave, mas firme. Eu sou Éleyren, a Sacerdotisa de Tisadya. Você está na enfermaria do Santuário. Encontraram você caído na floresta a oeste daqui, há dois dias, sem sentidos.\\nEla inclina a cabeça, seus olhos fixos nos seus. Eu curei o que pude, mas o resto depende de Tisadya. . . e de você. Você se lembra de como chegou aqui? Se lembra do seu nome?\\nVocê não se lembra de nada do seu passado: nação, familia. . . Tudo o que você se lembra é seu nome.\\nAo leste você vê uma porta de madeira que leva ao santuário.\\n"
+horizontal_alignment = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CorFundo" type="ColorPickerButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.825
+anchor_top = 15.4
+anchor_right = 25.025
+anchor_bottom = 17.0
+text = "Troque a cor do texto"
+icon = SubResource("ImageTexture_ae2o1")
 flat = true
+color = Color(0.41981313, 0.41981313, 0.4198131, 1)
+edit_alpha = false
+edit_intensity = false
+metadata/_edit_use_anchors_ = true
 
-[connection signal="text_submitted" from="VBoxContainer/EntradaComando" to="." method="processar_entrada"]
-[connection signal="pressed" from="VBoxContainer/BotaoFalar" to="." method="iniciar_comando_voz"]
+[node name="CorTexto" type="ColorPickerButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.825
+anchor_top = 12.2
+anchor_right = 25.025
+anchor_bottom = 13.6
+theme = SubResource("Theme_ae2o1")
+theme_override_colors/font_color = Color(0.7490196, 0.05490196, 0.28235295, 1)
+text = "Cor do texto"
+flat = true
+color = Color(0.20784314, 0.60784316, 0.2901961, 1)
+edit_alpha = false
+edit_intensity = false
+metadata/_edit_use_anchors_ = true
+
+[node name="EntradaTexto" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -6.775
+anchor_top = 18.8
+anchor_right = 10.425
+anchor_bottom = 20.6
+keep_editing_on_text_submit = true
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.825
+anchor_top = 18.4
+anchor_right = 25.175
+anchor_bottom = 20.0
+theme_override_fonts/font = SubResource("FontVariation_au0an")
+theme_override_font_sizes/font_size = 20
+text = "Troque a fonte se desejar"
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Arial"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Roboto"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.425
+anchor_top = 1.8
+anchor_right = 28.025
+anchor_bottom = 2.375
+text = "MAPA"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 17.225
+anchor_top = 2.8
+anchor_right = 28.425
+anchor_bottom = 10.2
+theme = SubResource("Theme_p13vs")
+metadata/_edit_use_anchors_ = true
+
+[node name="Boss" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19642857
+anchor_top = 0.08108108
+anchor_right = 0.32142857
+anchor_bottom = 0.24324325
+metadata/_edit_use_anchors_ = true
+
+[node name="Sala1" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.64285713
+anchor_top = 0.5675676
+anchor_right = 0.75
+anchor_bottom = 0.7297297
+metadata/_edit_use_anchors_ = true
+
+[node name="Sala2" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6785714
+anchor_top = 0.13513513
+anchor_right = 0.8214286
+anchor_bottom = 0.35135135
+metadata/_edit_use_anchors_ = true
+
+[node name="Corredor" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2857143
+anchor_top = 0.3783784
+anchor_right = 0.48214287
+anchor_bottom = 0.6486486
+offset_bottom = 1.5258789e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.16216215
+anchor_right = 0.26785713
+anchor_bottom = 0.1891892
+color = Color(0.6018299, 0.055522494, 0.055522494, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Texto_cor" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 19.425
+anchor_top = 11.4
+anchor_right = 24.05
+anchor_bottom = 12.0
+bbcode_enabled = true
+text = "Trocar cor do texto"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Texto_background" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 19.225
+anchor_top = 14.6
+anchor_right = 24.45
+anchor_bottom = 15.6
+text = "Trocar cor de fundo"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Zoom_mais" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 14.825
+anchor_top = 17.0
+anchor_right = 17.225
+anchor_bottom = 18.6
+text = "Zoom +"
+metadata/_edit_use_anchors_ = true
+
+[node name="Zoom_menos" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 11.625
+anchor_top = 17.0
+anchor_right = 14.225
+anchor_bottom = 18.6
+text = "Zoom -"
+metadata/_edit_use_anchors_ = true
